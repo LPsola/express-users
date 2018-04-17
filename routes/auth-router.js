@@ -30,4 +30,32 @@ router.post("/process-signup", (req, res, next) => {
     });
 });
 
+router.get("/login", (req, res, next) => {
+  res.render("auth-views/login-form");
+});
+
+router.post("/process-login", (req, res, next) => {
+  const { email, password } = req.body;
+
+  User.findOne({ email })
+    .then((userDetails) => {
+      // "userDetails" will be falsy if we didn't find a user
+      if (!userDetails) {
+        res.redirect("/login");
+        return;
+      }
+
+      const { encryptedPassword } = userDetails;
+      if (bcrypt.compareSync(password, encryptedPassword)) {
+        res.send("<h1>CREDENTIALS ARE GOOD</h1>");
+      }
+      else {
+        res.redirect("/login");
+      }
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
