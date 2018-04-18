@@ -5,7 +5,15 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  encryptedPassword: { type: String, required: true }
+
+  // normal sign up & login
+  encryptedPassword: { type: String },
+
+  // login with Google
+  googleID: { type: String },
+
+  // login with GitHub
+  githubID: { type: String }
 }, {
   timestamps: true
 });

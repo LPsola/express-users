@@ -2,6 +2,10 @@ const passport = require("passport");
 
 const User = require("../models/user-model");
 
+// Run the code inside these files
+require("./google-strategy");
+require("./github-strategy");
+
 // seralize: what information will we store in the session?
 passport.serializeUser((userDetails, done) => {
   console.log("SERIALIZE (save to session)");
