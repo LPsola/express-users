@@ -7,10 +7,14 @@ a {
 
 .error-alert {
   border: 3px solid;
-  color: crimson; }
+  border-radius: 3px;
+  color: crimson;
+  padding: 10px; }
 
 .success-alert {
   border: 3px solid;
-  color: chartreuse; }
+  border-radius: 3px;
+  color: chartreuse;
+  padding: 10px; }
 
 /*# sourceMappingURL=style.css.map */
