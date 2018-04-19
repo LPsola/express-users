@@ -73,4 +73,7 @@ app.use('/', index);
 const authRouter = require('./routes/auth-router');
 app.use('/', authRouter);
 
+const roomRouter = require('./routes/room-router');
+app.use('/', roomRouter);
+
 module.exports = app;
