@@ -27,11 +27,11 @@ passport.use(new GoogleStrategy({
           googleID: id,
           fullName: displayName,
           email: emails[0].value
+        })
+        .then((newUser) => {
+          // log in the newly created user
+          done(null, newUser);
         });
-    })
-    .then((newUser) => {
-      // log in the newly created user
-      done(null, newUser);
     })
     .catch((err) => {
       done(err);

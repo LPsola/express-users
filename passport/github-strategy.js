@@ -27,10 +27,10 @@ passport.use(new GithubStrategy({
           email: emails
             ? emails[0].value
             : `${username}@github.com`
+        })
+        .then((newUser) => {
+          done(null, newUser);
         });
-    })
-    .then((newUser) => {
-      done(null, newUser);
     })
     .catch((err) => {
       done(err);
